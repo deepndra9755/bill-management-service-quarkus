@@ -16,14 +16,13 @@ import org.slf4j.LoggerFactory;
 @ApplicationScoped
 public class InterviewResource {
     public static final Logger log = LoggerFactory.getLogger(InterviewResource.class);
-
     @Inject
     private IInterviewService iInterviewService;
 
     @POST
     @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Uni<String> addPatient1(CandidateRequest requestDto) {
+    public Uni<String> register(CandidateRequest requestDto) {
         log.info("PatientResource:createPatient exe... {}", requestDto);
         return iInterviewService.register(requestDto).map(s -> s);
     }
